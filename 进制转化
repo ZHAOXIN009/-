@@ -1,0 +1,29 @@
+#include <iostream>
+#include<stack>
+using namespace std;
+void convert(stack <char>& A,int n ,int base){ //n is the number need to be converted to base digit (8#,16#)
+	static int digit[] = { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F' };
+	while (n > 0) {
+		A.push(digit[n % base]);
+		n /= base;
+	}
+}
+int main()
+{
+	stack <char>S;
+	int n_,base_;
+	cout << "the number need to be converted"<<endl;
+	cin >> n_;
+	cout << "decimal you want"<<endl;
+	cin >> base_;
+	convert(S, n_, base_);
+	while (!S.empty()) {
+		cout << S.top();
+		S.pop();
+	}
+	return 0;
+
+
+	
+
+}
